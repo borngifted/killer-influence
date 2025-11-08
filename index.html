@@ -54,21 +54,62 @@
             transition: transform 0.3s ease;
         }
 
-        video {
+        /* Background Video Styling */
+        .video-background {
+            position: absolute;
+            top: 0;
+            left: 0;
             width: 100%;
-            height: auto;
-            border-radius: 0.5rem;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.3;
+            z-index: 0;
         }
 
-        .scene-video {
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5), 0 10px 10px -5px rgba(0, 0, 0, 0.4);
-            border: 2px solid #374151;
+        .video-background-wrapper {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .video-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(17, 24, 39, 0.7), rgba(17, 24, 39, 0.9));
+            z-index: 1;
+        }
+
+        .scene-image {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .scene-image:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 30px rgba(239, 68, 68, 0.5);
+        }
+
+        .talent-card {
+            backdrop-filter: blur(10px);
+            background: rgba(31, 41, 55, 0.8);
+            border: 1px solid rgba(239, 68, 68, 0.2);
             transition: all 0.3s ease;
         }
 
-        .scene-video:hover {
+        .talent-card:hover {
             border-color: #ef4444;
-            box-shadow: 0 0 30px rgba(239, 68, 68, 0.5);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(239, 68, 68, 0.3);
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .float-animation {
+            animation: float 6s ease-in-out infinite;
         }
     </style>
 </head>
@@ -82,23 +123,28 @@
                 </a>
                 <div class="hidden md:flex space-x-6">
                     <a href="#logline" class="text-gray-300 hover:text-red-500 transition-colors">Logline</a>
+                    <a href="#talent" class="text-gray-300 hover:text-red-500 transition-colors">Talent</a>
                     <a href="#scenes" class="text-gray-300 hover:text-red-500 transition-colors">Scenes</a>
                     <a href="#dna" class="text-gray-300 hover:text-red-500 transition-colors">DNA</a>
                     <a href="#characters" class="text-gray-300 hover:text-red-500 transition-colors">Characters</a>
-                    <a href="#structure" class="text-gray-300 hover:text-red-500 transition-colors">Structure</a>
                     <a href="#vision" class="text-gray-300 hover:text-red-500 transition-colors">Vision</a>
                 </div>
             </div>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <header id="home" class="min-h-screen flex items-center justify-center text-center bg-gray-900 relative overflow-hidden px-4">
-        <div class="absolute top-4 left-4 text-gray-700 text-sm opacity-50">CAM_01_STAGE_WIDE</div>
-        <div class="absolute bottom-4 right-4 text-gray-700 text-sm opacity-50">STATUS: LIVE</div>
+    <!-- Hero Section with Background Video -->
+    <header id="home" class="min-h-screen flex items-center justify-center text-center video-background-wrapper">
+        <video autoplay loop muted playsinline class="video-background">
+            <source src="_scene_s1.mp4" type="video/mp4">
+        </video>
+        <div class="video-overlay"></div>
 
-        <div class="relative z-10">
-            <div class="mb-8">
+        <div class="absolute top-4 left-4 text-gray-400 text-sm opacity-50 z-10">CAM_01_STAGE_WIDE</div>
+        <div class="absolute bottom-4 right-4 text-gray-400 text-sm opacity-50 z-10">STATUS: LIVE</div>
+
+        <div class="relative z-10 px-4">
+            <div class="mb-8 float-animation">
                 <div class="w-24 h-24 bg-red-600 rounded-full flex items-center justify-center mx-auto rec-pulse">
                     <span class="text-white font-black text-2xl">REC</span>
                 </div>
@@ -115,164 +161,229 @@
     <!-- Main Content Wrapper -->
     <main class="container mx-auto px-4 py-16 space-y-24">
         <!-- Hook & Positioning Section -->
-        <section id="logline" class="text-center">
-            <h2 class="text-3xl md:text-4xl font-bold mb-4 text-red-500">Elevated survival-horror for the algorithm age.</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto mt-12">
-                <div class="bg-gray-800 p-6 rounded-lg shadow-xl border border-gray-700">
-                    <i class="fas fa-brain text-3xl text-red-500 mb-4"></i>
-                    <h3 class="text-xl font-bold mb-2">High-Concept</h3>
-                    <p class="text-gray-400">SAW-like engineered kills meet SQUID GAME-style elimination rounds.</p>
-                </div>
-                <div class="bg-gray-800 p-6 rounded-lg shadow-xl border border-gray-700">
-                    <i class="fas fa-box text-3xl text-red-500 mb-4"></i>
-                    <h3 class="text-xl font-bold mb-2">One-Location</h3>
-                    <p class="text-gray-400">A modular soundstage that reconfigures into traps and sets.</p>
-                </div>
-                <div class="bg-gray-800 p-6 rounded-lg shadow-xl border border-gray-700">
-                    <i class="fas fa-share-alt text-3xl text-red-500 mb-4"></i>
-                    <h3 class="text-xl font-bold mb-2">Meta-Viral Engine</h3>
-                    <p class="text-gray-400">Survival is tied to views, shares, and engagement metrics.</p>
-                </div>
-                <div class="bg-gray-800 p-6 rounded-lg shadow-xl border border-gray-700">
-                    <i class="fas fa-mobile-alt text-3xl text-red-500 mb-4"></i>
-                    <h3 class="text-xl font-bold mb-2">Stylish Form</h3>
-                    <p class="text-gray-400">Vertical video aesthetics + surveillance POVs vs. brutal realism.</p>
+        <section id="logline" class="text-center relative video-background-wrapper py-16">
+            <video autoplay loop muted playsinline class="video-background">
+                <source src="_scene_s5-2.mp4" type="video/mp4">
+            </video>
+            <div class="video-overlay"></div>
+
+            <div class="relative z-10">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 text-red-500">Elevated survival-horror for the algorithm age.</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto mt-12">
+                    <div class="bg-gray-800/90 backdrop-blur-sm p-6 rounded-lg shadow-xl border border-gray-700">
+                        <i class="fas fa-brain text-3xl text-red-500 mb-4"></i>
+                        <h3 class="text-xl font-bold mb-2">High-Concept</h3>
+                        <p class="text-gray-400">SAW-like engineered kills meet SQUID GAME-style elimination rounds.</p>
+                    </div>
+                    <div class="bg-gray-800/90 backdrop-blur-sm p-6 rounded-lg shadow-xl border border-gray-700">
+                        <i class="fas fa-box text-3xl text-red-500 mb-4"></i>
+                        <h3 class="text-xl font-bold mb-2">One-Location</h3>
+                        <p class="text-gray-400">A modular soundstage that reconfigures into traps and sets.</p>
+                    </div>
+                    <div class="bg-gray-800/90 backdrop-blur-sm p-6 rounded-lg shadow-xl border border-gray-700">
+                        <i class="fas fa-share-alt text-3xl text-red-500 mb-4"></i>
+                        <h3 class="text-xl font-bold mb-2">Meta-Viral Engine</h3>
+                        <p class="text-gray-400">Survival is tied to views, shares, and engagement metrics.</p>
+                    </div>
+                    <div class="bg-gray-800/90 backdrop-blur-sm p-6 rounded-lg shadow-xl border border-gray-700">
+                        <i class="fas fa-mobile-alt text-3xl text-red-500 mb-4"></i>
+                        <h3 class="text-xl font-bold mb-2">Stylish Form</h3>
+                        <p class="text-gray-400">Vertical video aesthetics + surveillance POVs vs. brutal realism.</p>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- Scene Showcase Section with Videos -->
-        <section id="scenes" class="bg-black -mx-4 px-4 py-16">
-            <div class="container mx-auto">
-                <h2 class="text-3xl md:text-4xl font-bold mb-10 text-center text-red-500">Scene Showcase</h2>
+        <!-- Attached Talent Section -->
+        <section id="talent" class="relative video-background-wrapper py-16">
+            <video autoplay loop muted playsinline class="video-background">
+                <source src="_scene_s2.mp4" type="video/mp4">
+            </video>
+            <div class="video-overlay"></div>
+
+            <div class="relative z-10">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 text-center text-red-500">Influencers Attached</h2>
                 <p class="text-center text-gray-400 max-w-3xl mx-auto mb-12">
-                    Explore the 7 modular sets of the soundstage. Each scene represents a unique environment designed to trap, terrorize, and test the influencers as they fight for survival.
+                    Major social media stars with <strong class="text-white">50M+ combined followers</strong> ready to bring authentic influencer culture to the screen.
                 </p>
 
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-7xl mx-auto">
-                    <!-- Scene 1 -->
-                    <div class="bg-gray-900 p-6 rounded-lg border border-gray-800">
-                        <div class="flex items-center justify-between mb-4">
-                            <h3 class="text-2xl font-bold text-red-500">S1: The Red Corridor</h3>
-                            <span class="text-xs text-gray-500 bg-gray-800 px-3 py-1 rounded-full">ENTRANCE</span>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+                    <div class="talent-card p-6 rounded-lg text-center">
+                        <div class="w-20 h-20 bg-red-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-microphone text-3xl text-white"></i>
                         </div>
-                        <video class="scene-video mb-4" controls>
-                            <source src="_scene_s1.mp4" type="video/mp4">
-                            Your browser does not support the video tag.
-                        </video>
-                        <p class="text-gray-400 text-sm">
-                            <strong class="text-white">DAY 1 - The Accident:</strong> Initial entrapment. Studio doors seal. The Voice's first decree—the threshold between invitation and imprisonment.
-                        </p>
+                        <h3 class="text-2xl font-bold text-white mb-2">Funny Marco</h3>
+                        <p class="text-gray-400 text-sm">Comedy/Interview Content</p>
+                        <p class="text-red-500 font-bold mt-2">15M+ Followers</p>
                     </div>
 
-                    <!-- Scene 2 -->
-                    <div class="bg-gray-900 p-6 rounded-lg border border-gray-800">
-                        <div class="flex items-center justify-between mb-4">
-                            <h3 class="text-2xl font-bold text-red-500">S2: The Asylum Wing</h3>
-                            <span class="text-xs text-gray-500 bg-gray-800 px-3 py-1 rounded-full">MEDICAL SET</span>
+                    <div class="talent-card p-6 rounded-lg text-center">
+                        <div class="w-20 h-20 bg-red-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-podcast text-3xl text-white"></i>
                         </div>
-                        <video class="scene-video mb-4" controls>
-                            <source src="_scene_s2.mp4" type="video/mp4">
-                            Your browser does not support the video tag.
-                        </video>
-                        <p class="text-gray-400 text-sm">
-                            <strong class="text-white">DAY 2 - Editing Tragedy:</strong> Decaying hospital configuration. LEXI's practical effects become weaponized. Film gear turns lethal.
-                        </p>
+                        <h3 class="text-2xl font-bold text-white mb-2">Bobbi Althoff</h3>
+                        <p class="text-gray-400 text-sm">Podcast Host</p>
+                        <p class="text-red-500 font-bold mt-2">8M+ Followers</p>
                     </div>
 
-                    <!-- Scene 3 -->
-                    <div class="bg-gray-900 p-6 rounded-lg border border-gray-800">
-                        <div class="flex items-center justify-between mb-4">
-                            <h3 class="text-2xl font-bold text-red-500">S3: The Detention Block</h3>
-                            <span class="text-xs text-gray-500 bg-gray-800 px-3 py-1 rounded-full">SCHOOL SET</span>
+                    <div class="talent-card p-6 rounded-lg text-center">
+                        <div class="w-20 h-20 bg-red-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-fire text-3xl text-white"></i>
                         </div>
-                        <video class="scene-video mb-4" controls>
-                            <source src="_scene_s3.mp4" type="video/mp4">
-                            Your browser does not support the video tag.
-                        </video>
-                        <p class="text-gray-400 text-sm">
-                            <strong class="text-white">DAY 3 - Metrics & Morality:</strong> School hallway targets nostalgia. Metrics = morality. Forced participation. Trust collapses.
-                        </p>
+                        <h3 class="text-2xl font-bold text-white mb-2">Mojo Brooks</h3>
+                        <p class="text-gray-400 text-sm">Viral Content Creator</p>
+                        <p class="text-red-500 font-bold mt-2">5M+ Followers</p>
                     </div>
 
-                    <!-- Scene 4 -->
-                    <div class="bg-gray-900 p-6 rounded-lg border border-gray-800">
-                        <div class="flex items-center justify-between mb-4">
-                            <h3 class="text-2xl font-bold text-red-500">S4: The Guts</h3>
-                            <span class="text-xs text-gray-500 bg-gray-800 px-3 py-1 rounded-full">BOILER ROOM</span>
+                    <div class="talent-card p-6 rounded-lg text-center">
+                        <div class="w-20 h-20 bg-red-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-tv text-3xl text-white"></i>
                         </div>
-                        <video class="scene-video mb-4" controls>
-                            <source src="_scene_s4.mp4" type="video/mp4">
-                            Your browser does not support the video tag.
-                        </video>
-                        <p class="text-gray-400 text-sm">
-                            <strong class="text-white">DAY 4 - Betrayal Mechanics:</strong> Set reconfigures against them. Pipes burst, steam scalds. SAW-style mechanical horror.
-                        </p>
+                        <h3 class="text-2xl font-bold text-white mb-2">Drew Sidora</h3>
+                        <p class="text-gray-400 text-sm">Reality TV Star</p>
+                        <p class="text-red-500 font-bold mt-2">RHOA Cast</p>
                     </div>
 
-                    <!-- Scene 5 -->
-                    <div class="bg-gray-900 p-6 rounded-lg border border-gray-800">
-                        <div class="flex items-center justify-between mb-4">
-                            <h3 class="text-2xl font-bold text-red-500">S5: The Panopticon</h3>
-                            <span class="text-xs text-gray-500 bg-gray-800 px-3 py-1 rounded-full">META-LAYER</span>
+                    <div class="talent-card p-6 rounded-lg text-center">
+                        <div class="w-20 h-20 bg-red-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-laugh text-3xl text-white"></i>
                         </div>
-                        <video class="scene-video mb-4" controls>
-                            <source src="_scene_s5-2.mp4" type="video/mp4">
-                            Your browser does not support the video tag.
-                        </video>
-                        <p class="text-gray-400 text-sm">
-                            <strong class="text-white">The Voice's Domain:</strong> Dual-reality nerve center. Half backstage, half broadcast studio. Red tally lights = death sentences.
-                        </p>
+                        <h3 class="text-2xl font-bold text-white mb-2">B. Simone</h3>
+                        <p class="text-gray-400 text-sm">Comedian/Actress</p>
+                        <p class="text-red-500 font-bold mt-2">Wild 'N Out</p>
                     </div>
 
-                    <!-- Scene 6 -->
-                    <div class="bg-gray-900 p-6 rounded-lg border border-gray-800">
-                        <div class="flex items-center justify-between mb-4">
-                            <h3 class="text-2xl font-bold text-red-500">S6: The Open Room</h3>
-                            <span class="text-xs text-gray-500 bg-gray-800 px-3 py-1 rounded-full">ARENA</span>
+                    <div class="talent-card p-6 rounded-lg text-center">
+                        <div class="w-20 h-20 bg-red-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-music text-3xl text-white"></i>
                         </div>
-                        <video class="scene-video mb-4" controls>
-                            <source src="_scene_s6.mp4" type="video/mp4">
-                            Your browser does not support the video tag.
-                        </video>
-                        <p class="text-gray-400 text-sm">
-                            <strong class="text-white">The Revelation:</strong> Overhead reveal—entire soundstage exposed. All sets visible. Survivors realize they're rats in a maze.
-                        </p>
-                    </div>
-
-                    <!-- Scene 7 -->
-                    <div class="bg-gray-900 p-6 rounded-lg border border-gray-800 lg:col-span-2">
-                        <div class="flex items-center justify-between mb-4">
-                            <h3 class="text-2xl font-bold text-red-500">S7: The Open Space</h3>
-                            <span class="text-xs text-gray-500 bg-gray-800 px-3 py-1 rounded-full">FINALE</span>
-                        </div>
-                        <div class="max-w-4xl mx-auto">
-                            <video class="scene-video mb-4" controls>
-                                <source src="_scene_s7.mp4" type="video/mp4">
-                                Your browser does not support the video tag.
-                            </video>
-                        </div>
-                        <p class="text-gray-400 text-sm text-center">
-                            <strong class="text-white">FINALE - The Live Studio Audience:</strong> Tunnel to freedom. Red lights fade to white. But white = stage lights. LEXI emerges into a live studio audience. She was content all along.
-                        </p>
+                        <h3 class="text-2xl font-bold text-white mb-2">Korporate</h3>
+                        <p class="text-gray-400 text-sm">Music Artist/Influencer</p>
+                        <p class="text-red-500 font-bold mt-2">Multi-Platform Star</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Synopsis Section -->
-        <section id="synopsis" class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
-                <h2 class="text-3xl md:text-4xl font-bold mb-6 text-center lg:text-left">Synopsis</h2>
-                <p class="text-lg text-gray-300 max-w-4xl mx-auto leading-relaxed">
-                    A mysterious invite lures nine creators—director, SFX artist, stuntman, AD, DP, sound tech, and a 'perfect' couple—to an all-night "competition." The studio doors seal. A cold Voice lays out the rules: film a terrifying scene by deadline, hit the viral threshold, or someone dies. As their shorts blend into real carnage, egos fracture and alliances form; scripts are weaponized; film gear becomes lethal. Each day's prompt escalates the mayhem until only a Final contestant remains to face a last, impossible choice—and the truth about who's been watching.
-                </p>
+        <!-- Scene Showcase with Images -->
+        <section id="scenes" class="py-16">
+            <h2 class="text-3xl md:text-4xl font-bold mb-10 text-center text-red-500">The Seven Deadly Sets</h2>
+            <p class="text-center text-gray-400 max-w-3xl mx-auto mb-12">
+                Each modular environment is designed to trap, terrorize, and test the influencers as the soundstage becomes their cage.
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Scene 1 -->
+                <div class="bg-gray-900 rounded-lg overflow-hidden border border-gray-800 hover:border-red-500 transition-all">
+                    <img src="S1_1.png" alt="The Red Corridor" class="w-full h-64 object-cover scene-image">
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-2">
+                            <h3 class="text-xl font-bold text-red-500">S1: Red Corridor</h3>
+                            <span class="text-xs bg-red-600 px-2 py-1 rounded">ENTRANCE</span>
+                        </div>
+                        <p class="text-gray-400 text-sm">DAY 1 - The doors seal. The game begins. Red = danger, recording, bloodshed.</p>
+                    </div>
+                </div>
+
+                <!-- Scene 2 -->
+                <div class="bg-gray-900 rounded-lg overflow-hidden border border-gray-800 hover:border-red-500 transition-all">
+                    <img src="S2_1.png" alt="The Asylum Wing" class="w-full h-64 object-cover scene-image">
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-2">
+                            <h3 class="text-xl font-bold text-red-500">S2: Asylum Wing</h3>
+                            <span class="text-xs bg-green-600 px-2 py-1 rounded">MEDICAL</span>
+                        </div>
+                        <p class="text-gray-400 text-sm">DAY 2 - Decaying hospital. SFX become weapons. Surgical tools = death.</p>
+                    </div>
+                </div>
+
+                <!-- Scene 3 -->
+                <div class="bg-gray-900 rounded-lg overflow-hidden border border-gray-800 hover:border-red-500 transition-all">
+                    <img src="S3_1.png" alt="The Detention Block" class="w-full h-64 object-cover scene-image">
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-2">
+                            <h3 class="text-xl font-bold text-red-500">S3: Detention Block</h3>
+                            <span class="text-xs bg-yellow-600 px-2 py-1 rounded">SCHOOL</span>
+                        </div>
+                        <p class="text-gray-400 text-sm">DAY 3 - Nostalgia weaponized. Metrics = morality. Trust collapses.</p>
+                    </div>
+                </div>
+
+                <!-- Scene 4 -->
+                <div class="bg-gray-900 rounded-lg overflow-hidden border border-gray-800 hover:border-red-500 transition-all">
+                    <img src="S4_1.png" alt="The Guts" class="w-full h-64 object-cover scene-image">
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-2">
+                            <h3 class="text-xl font-bold text-red-500">S4: The Guts</h3>
+                            <span class="text-xs bg-orange-600 px-2 py-1 rounded">BOILER</span>
+                        </div>
+                        <p class="text-gray-400 text-sm">DAY 4 - SAW-style mechanics. Pipes burst. Infrastructure exposed.</p>
+                    </div>
+                </div>
+
+                <!-- Scene 5 -->
+                <div class="bg-gray-900 rounded-lg overflow-hidden border border-gray-800 hover:border-red-500 transition-all">
+                    <img src="S5_1.png" alt="The Panopticon" class="w-full h-64 object-cover scene-image">
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-2">
+                            <h3 class="text-xl font-bold text-red-500">S5: Panopticon</h3>
+                            <span class="text-xs bg-purple-600 px-2 py-1 rounded">CONTROL</span>
+                        </div>
+                        <p class="text-gray-400 text-sm">Meta-layer. The Voice's domain. Red tally lights = death sentences.</p>
+                    </div>
+                </div>
+
+                <!-- Scene 6 -->
+                <div class="bg-gray-900 rounded-lg overflow-hidden border border-gray-800 hover:border-red-500 transition-all">
+                    <img src="S6_1.png" alt="The Open Room" class="w-full h-64 object-cover scene-image">
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-2">
+                            <h3 class="text-xl font-bold text-red-500">S6: Open Room</h3>
+                            <span class="text-xs bg-blue-600 px-2 py-1 rounded">ARENA</span>
+                        </div>
+                        <p class="text-gray-400 text-sm">The revelation. Overhead shot exposes all sets. Rats in a maze.</p>
+                    </div>
+                </div>
+
+                <!-- Scene 7 -->
+                <div class="bg-gray-900 rounded-lg overflow-hidden border border-gray-800 hover:border-red-500 transition-all lg:col-span-3">
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <img src="S7_1.png" alt="The Open Space" class="w-full h-full object-cover scene-image">
+                        <div class="p-6 flex flex-col justify-center">
+                            <div class="flex items-center justify-between mb-2">
+                                <h3 class="text-2xl font-bold text-red-500">S7: The Open Space</h3>
+                                <span class="text-xs bg-red-700 px-3 py-1 rounded">FINALE</span>
+                            </div>
+                            <p class="text-gray-300 text-lg mb-4">
+                                Tunnel to freedom. Red fades to white. But white = stage lights. The Final Girl emerges into a <strong class="text-white">live studio audience</strong>. She was content all along.
+                            </p>
+                            <p class="text-red-400 italic">Survival = ratings. The ultimate horror: viewers complicit all along.</p>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="flex justify-center">
-                <video class="scene-video w-full max-w-md lg:max-w-full" controls muted>
-                    <source src="_scene_s1.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
+        </section>
+
+        <!-- Synopsis Section with Background Video -->
+        <section id="synopsis" class="relative video-background-wrapper py-16">
+            <video autoplay loop muted playsinline class="video-background">
+                <source src="_scene_s3.mp4" type="video/mp4">
+            </video>
+            <div class="video-overlay"></div>
+
+            <div class="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6 text-center lg:text-left">Synopsis</h2>
+                    <p class="text-lg text-gray-300 max-w-4xl mx-auto leading-relaxed">
+                        A mysterious invite lures nine creators—director, SFX artist, stuntman, AD, DP, sound tech, and a 'perfect' couple—to an all-night "competition." The studio doors seal. A cold Voice lays out the rules: film a terrifying scene by deadline, hit the viral threshold, or someone dies. As their shorts blend into real carnage, egos fracture and alliances form; scripts are weaponized; film gear becomes lethal. Each day's prompt escalates the mayhem until only a Final contestant remains to face a last, impossible choice—and the truth about who's been watching.
+                    </p>
+                </div>
+                <div class="grid grid-cols-2 gap-4">
+                    <img src="S1_3.png" alt="Scene Still" class="rounded-lg scene-image">
+                    <img src="S2_5.png" alt="Scene Still" class="rounded-lg scene-image">
+                    <img src="S3_5.png" alt="Scene Still" class="rounded-lg scene-image">
+                    <img src="S4_5.png" alt="Scene Still" class="rounded-lg scene-image">
+                </div>
             </div>
         </section>
 
@@ -280,23 +391,23 @@
         <section id="dna">
             <h2 class="text-3xl md:text-4xl font-bold mb-10 text-center">DNA & References</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6">
-                <div class="bg-gray-800 p-6 rounded-lg shadow-lg border border-gray-700 text-center">
+                <div class="bg-gray-800 p-6 rounded-lg shadow-lg border border-gray-700 text-center hover:border-red-500 transition-all">
                     <h3 class="text-2xl font-bold mb-2 text-white">SAW</h3>
                     <p class="text-gray-400">Morality traps engineered from film gear; every choice has a cost.</p>
                 </div>
-                <div class="bg-gray-800 p-6 rounded-lg shadow-lg border border-gray-700 text-center">
+                <div class="bg-gray-800 p-6 rounded-lg shadow-lg border border-gray-700 text-center hover:border-red-500 transition-all">
                     <h3 class="text-2xl font-bold mb-2 text-white">SQUID GAME</h3>
                     <p class="text-gray-400">Structured rounds, public spectacle, ruthless culling to one survivor.</p>
                 </div>
-                <div class="bg-gray-800 p-6 rounded-lg shadow-lg border border-gray-700 text-center">
+                <div class="bg-gray-800 p-6 rounded-lg shadow-lg border border-gray-700 text-center hover:border-red-500 transition-all">
                     <h3 class="text-2xl font-bold mb-2 text-white">THE TRUMAN SHOW</h3>
                     <p class="text-gray-400">Hidden cameras, meta-reality, the horror of being content.</p>
                 </div>
-                <div class="bg-gray-800 p-6 rounded-lg shadow-lg border border-gray-700 text-center">
+                <div class="bg-gray-800 p-6 rounded-lg shadow-lg border border-gray-700 text-center hover:border-red-500 transition-all">
                     <h3 class="text-2xl font-bold mb-2 text-white">THE BELKO EXPERIMENT</h3>
                     <p class="text-gray-400">Intercom overlord, kill-or-be-killed in a single sealed space.</p>
                 </div>
-                <div class="bg-gray-800 p-6 rounded-lg shadow-lg border border-gray-700 text-center">
+                <div class="bg-gray-800 p-6 rounded-lg shadow-lg border border-gray-700 text-center hover:border-red-500 transition-all">
                     <h3 class="text-2xl font-bold mb-2 text-white">ESCAPE ROOM</h3>
                     <p class="text-gray-400">Puzzle-box environments that weaponize design and psychology.</p>
                 </div>
@@ -355,105 +466,42 @@
             </div>
         </section>
 
-        <!-- Structure Section (Accordion) -->
-        <section id="structure">
-            <h2 class="text-3xl md:text-4xl font-bold mb-10 text-center">Structure: Escalation by Day</h2>
-            <div class="max-w-3xl mx-auto space-y-2">
-                <div class="border border-gray-700 rounded-lg">
-                    <button class="accordion-header flex justify-between items-center w-full p-5 text-left text-xl font-bold hover:bg-gray-800 transition-colors">
-                        <span>DAY 1: The "Accident"</span>
-                        <i class="fas fa-chevron-down transition-transform duration-300"></i>
-                    </button>
-                    <div class="accordion-panel bg-gray-800 p-5">
-                        <p class="text-gray-300">First prompt; a 'scene' ends in a fatal on-set "accident." The game is real.</p>
-                    </div>
-                </div>
-                <div class="border border-gray-700 rounded-lg">
-                    <button class="accordion-header flex justify-between items-center w-full p-5 text-left text-xl font-bold hover:bg-gray-800 transition-colors">
-                        <span>DAY 2: Editing Tragedy</span>
-                        <i class="fas fa-chevron-down transition-transform duration-300"></i>
-                    </button>
-                    <div class="accordion-panel bg-gray-800 p-5">
-                        <p class="text-gray-300">Bigger, bloodier; virality demands they cut tragedy *into* the edit to survive.</p>
-                    </div>
-                </div>
-                <div class="border border-gray-700 rounded-lg">
-                    <button class="accordion-header flex justify-between items-center w-full p-5 text-left text-xl font-bold hover:bg-gray-800 transition-colors">
-                        <span>DAY 3: Metrics & Morality</span>
-                        <i class="fas fa-chevron-down transition-transform duration-300"></i>
-                    </button>
-                    <div class="accordion-panel bg-gray-800 p-5">
-                        <p class="text-gray-300">Metrics = morality. Refusal to participate triggers punishment. Trust collapses.</p>
-                    </div>
-                </div>
-                <div class="border border-gray-700 rounded-lg">
-                    <button class="accordion-header flex justify-between items-center w-full p-5 text-left text-xl font-bold hover:bg-gray-800 transition-colors">
-                        <span>DAY 4: Betrayal Mechanics</span>
-                        <i class="fas fa-chevron-down transition-transform duration-300"></i>
-                    </button>
-                    <div class="accordion-panel bg-gray-800 p-5">
-                        <p class="text-gray-300">The set literally reconfigures against them. Alliances are tested and broken.</p>
-                    </div>
-                </div>
-                <div class="border border-gray-700 rounded-lg">
-                    <button class="accordion-header flex justify-between items-center w-full p-5 text-left text-xl font-bold hover:bg-gray-800 transition-colors">
-                        <span>FINAL DAY: The System</span>
-                        <i class="fas fa-chevron-down transition-transform duration-300"></i>
-                    </button>
-                    <div class="accordion-panel bg-gray-800 p-5">
-                        <p class="text-gray-300">Final Girl vs. the system. Finish the film or become it permanently.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
+        <!-- Visual Style / Twist Section with Background Video -->
+        <section id="vision" class="relative video-background-wrapper py-16">
+            <video autoplay loop muted playsinline class="video-background">
+                <source src="_scene_s7.mp4" type="video/mp4">
+            </video>
+            <div class="video-overlay"></div>
 
-        <!-- Visual Style / Twist Section -->
-        <section id="twist" class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
-                <h2 class="text-3xl md:text-4xl font-bold mb-6">Visual Style</h2>
-                <ul class="space-y-4 text-lg text-gray-300">
-                    <li class="flex items-start">
-                        <i class="fas fa-mobile-alt text-red-500 mt-1 mr-3"></i>
-                        <span><strong class="text-white">Dual language:</strong> 9:16 "content frames" (likes, chat overlays) vs. widescreen 'real' dread.</span>
-                    </li>
-                    <li class="flex items-start">
-                        <i class="fas fa-video text-red-500 mt-1 mr-3"></i>
-                        <span><strong class="text-white">Surveillance POVs:</strong> Hard practicals; neon-meets-industrial palette; digital glitches as punctuation.</span>
-                    </li>
-                    <li class="flex items-start">
-                        <i class="fas fa-volume-up text-red-500 mt-1 mr-3"></i>
-                        <span><strong class="text-white">Sound as weapon:</strong> PA taunts, UI pings, dead air. Score swells only when the Voice wants it.</span>
-                    </li>
-                </ul>
-            </div>
+            <div class="relative z-10">
+                <h2 class="text-3xl md:text-4xl font-bold mb-10 text-center">Filmmaker Vision & Themes</h2>
 
-            <div class="bg-gray-800 p-8 rounded-lg shadow-xl border border-gray-700 text-center">
-                <h2 class="text-3xl font-bold mb-6">The Finale</h2>
-                <button id="revealButton" class="bg-red-600 text-white font-bold py-3 px-6 rounded-lg text-lg hover:bg-red-700 transition-all shadow-lg hover:shadow-red-500/50">
-                    Reveal the Twist
-                </button>
-                <div id="twistContent" class="hidden mt-6 text-gray-300 space-y-4 text-lg">
-                    <p>The doors open to a <strong class="text-white">live studio audience</strong>. Our Final Girl was content all along.</p>
-                    <p>The viewers were complicit spectators, voting with attention. <strong class="text-white">Survival equals ratings.</strong></p>
-                    <p class="text-xl italic text-red-400 mt-4">A brutal mirror: fame, fandom, and the algorithm as the true killer influence.</p>
+                <div class="max-w-4xl mx-auto space-y-6 text-lg text-gray-300 mb-12">
+                    <div class="bg-gray-800/80 backdrop-blur-sm p-6 rounded-lg border border-gray-700">
+                        <i class="fas fa-mobile-alt text-red-500 mr-3"></i>
+                        <strong class="text-white">Dual Visual Language:</strong> 9:16 "content frames" (likes, chat overlays) vs. widescreen surveillance dread.
+                    </div>
+                    <div class="bg-gray-800/80 backdrop-blur-sm p-6 rounded-lg border border-gray-700">
+                        <i class="fas fa-video text-red-500 mr-3"></i>
+                        <strong class="text-white">Surveillance POVs:</strong> Hard practicals; neon-meets-industrial palette; digital glitches as punctuation.
+                    </div>
+                    <div class="bg-gray-800/80 backdrop-blur-sm p-6 rounded-lg border border-gray-700">
+                        <i class="fas fa-volume-up text-red-500 mr-3"></i>
+                        <strong class="text-white">Sound as Weapon:</strong> PA taunts, UI pings, dead air. Score swells only when the Voice wants it.
+                    </div>
                 </div>
-            </div>
-        </section>
 
-        <!-- Filmmaker Vision Section -->
-        <section id="vision" class="text-center">
-            <h2 class="text-3xl md:text-4xl font-bold mb-10">Filmmaker Vision & Themes</h2>
-
-            <div class="flex justify-center mb-10">
-                <video class="scene-video w-full max-w-3xl" controls muted>
-                    <source src="_scene_s5-2.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
-            </div>
-            <div class="max-w-4xl mx-auto space-y-4 text-lg text-gray-300">
-                <p>Elevated horror with social bite: influencer masks vs. authentic selves under mortal stakes.</p>
-                <p>Audience complicity: we watch, we trend, we decide. The spectacle devours the performers.</p>
-                <p>A contained, stylish pressure-cooker designed for bold set-pieces and lasting conversation.</p>
+                <div class="bg-gray-900/90 backdrop-blur-sm p-8 rounded-lg shadow-xl border border-red-700 text-center max-w-2xl mx-auto">
+                    <h2 class="text-3xl font-bold mb-6 text-red-500">The Finale</h2>
+                    <button id="revealButton" class="bg-red-600 text-white font-bold py-3 px-6 rounded-lg text-lg hover:bg-red-700 transition-all shadow-lg hover:shadow-red-500/50">
+                        Reveal the Twist
+                    </button>
+                    <div id="twistContent" class="hidden mt-6 text-gray-300 space-y-4 text-lg">
+                        <p>The doors open to a <strong class="text-white">live studio audience</strong>. Our Final Girl was content all along.</p>
+                        <p>The viewers were complicit spectators, voting with attention. <strong class="text-white">Survival equals ratings.</strong></p>
+                        <p class="text-xl italic text-red-400 mt-4">A brutal mirror: fame, fandom, and the algorithm as the true killer influence.</p>
+                    </div>
+                </div>
             </div>
         </section>
     </main>
@@ -462,6 +510,7 @@
     <footer class="bg-gray-900 border-t border-gray-800 mt-24">
         <div class="container mx-auto px-4 py-8 text-center text-gray-500">
             <p>CONFIDENTIAL PITCH DECK. ALL RIGHTS RESERVED.</p>
+            <p class="text-sm mt-2">KILLER INFLUENCE © 2025</p>
         </div>
     </footer>
 
@@ -566,29 +615,6 @@
             if (e.target === modal) {
                 closeModal();
             }
-        });
-
-        const accordionHeaders = document.querySelectorAll('.accordion-header');
-        accordionHeaders.forEach(header => {
-            header.addEventListener('click', () => {
-                const panel = header.nextElementSibling;
-                const icon = header.querySelector('i.fas');
-
-                document.querySelectorAll('.accordion-panel').forEach(p => {
-                    if (p !== panel && p.style.maxHeight) {
-                        p.style.maxHeight = null;
-                        p.previousElementSibling.querySelector('i.fas').classList.remove('rotate-180');
-                    }
-                });
-
-                if (panel.style.maxHeight) {
-                    panel.style.maxHeight = null;
-                    icon.classList.remove('rotate-180');
-                } else {
-                    panel.style.maxHeight = panel.scrollHeight + 'px';
-                    icon.classList.add('rotate-180');
-                }
-            });
         });
 
         const revealButton = document.getElementById('revealButton');
