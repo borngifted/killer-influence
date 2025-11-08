@@ -1,0 +1,356 @@
+{
+  "project": {
+    "title": "Killer Influence",
+    "tagline": "Elevated survival-horror for the algorithm age",
+    "dna": [
+      "SAW-style engineered kills",
+      "SQUID GAME elimination structure",
+      "One modular soundstage",
+      "Meta-viral engine tied to engagement metrics"
+    ],
+    "visual_language": "Dual: 9:16 content frames vs. widescreen surveillance dread"
+  },
+  "lighting_moods": {
+    "neon_noir": {
+      "description": "Red/blue mixed light, smoky air, high contrast glow",
+      "color_palette": ["#ef4444", "#1e3a8a"],
+      "use_cases": ["entrance zones", "execution spaces", "neon-lit corridors"]
+    },
+    "clinical_decay": {
+      "description": "Sickly greens, fluorescent buzz, sterile grime",
+      "color_palette": ["#84cc16", "#e5e7eb"],
+      "use_cases": ["hospital sets", "institutional spaces", "medical horror"]
+    },
+    "industrial_heat": {
+      "description": "Tungsten orange, steam, metal sheen",
+      "color_palette": ["#f97316", "#7c2d12"],
+      "use_cases": ["boiler rooms", "mechanical traps", "infrastructure spaces"]
+    },
+    "surveillance_cold": {
+      "description": "White overhead rig light, hard shadow edges",
+      "color_palette": ["#f3f4f6", "#1f2937"],
+      "use_cases": ["arena reveals", "overhead shots", "panopticon spaces"]
+    }
+  },
+  "scenes": [
+    {
+      "id": "S1",
+      "name": "The Red Corridor",
+      "subtitle": "Entrance / Execution Zone",
+      "narrative_context": {
+        "story_beat": "DAY 1 - The Accident",
+        "description": "Initial entrapment. Studio doors seal. Nine influencers realize the game is real when the first 'accident' occurs.",
+        "characters": ["All 9 creators as silhouettes"],
+        "key_moment": "The Voice's first decree, threshold between invitation and imprisonment"
+      },
+      "prompt": "cinematic wide shot inside red-lit corridor labeled \"S1,\" two hooded silhouettes framed by glowing crimson light, fog swirling around their feet, glossy black floor reflections, flickering overhead fluorescents, deep shadows hide faces, 35 mm lens, handheld ARRI Alexa Mini LF, aperture f/2.8 shallow DOF, moody neon noir lighting, algorithmic horror aesthetic, film grain 8K realism",
+      "parameters": {
+        "aspect_ratio": "21:9",
+        "style": "cinematic",
+        "seed": 1123,
+        "negative_prompt": ""
+      },
+      "technical_specs": {
+        "camera": "ARRI Alexa Mini LF",
+        "lens": "35mm prime",
+        "aperture": "f/2.8",
+        "dof": "shallow",
+        "movement": "handheld",
+        "lighting_mood": "neon_noir",
+        "resolution": "8K"
+      },
+      "alternate_ratios": {
+        "standard_widescreen": "16:9",
+        "vertical_content": "9:16"
+      },
+      "thematic_notes": "Algorithmic horror aesthetic. Entry point to the game. Red = danger, recording, bloodshed."
+    },
+    {
+      "id": "S2",
+      "name": "The Asylum Wing",
+      "subtitle": "Medical Set",
+      "narrative_context": {
+        "story_beat": "DAY 2 - Editing Tragedy",
+        "description": "Soundstage reconfigures into decaying hospital. First mandatory 'scene' production. Virality demands they cut real tragedy into the edit.",
+        "characters": ["LEXI (SFX Artist)", "BRAD (Stuntman)", "SYLVIA (Writer)"],
+        "key_moment": "LEXI's practical effects become weaponized. Film gear turns lethal."
+      },
+      "prompt": "decaying hospital corridor from the late 20th century, sickly green and beige palette, cracked tiles, IV stands casting long silhouettes, flickering fluorescent lights, reflective linoleum, faint blood smears near drainage grate, shallow depth of field, Sony FX6 cinema camera, 35 mm prime lens, cinema handheld shot, sterile but grimy mood",
+      "parameters": {
+        "aspect_ratio": "16:9",
+        "style": "photoreal",
+        "seed": 2391,
+        "negative_prompt": "faces"
+      },
+      "technical_specs": {
+        "camera": "Sony FX6",
+        "lens": "35mm prime",
+        "aperture": "f/2",
+        "dof": "shallow",
+        "movement": "cinema handheld",
+        "lighting_mood": "clinical_decay",
+        "resolution": "8K"
+      },
+      "alternate_ratios": {
+        "ultra_wide": "21:9",
+        "vertical_content": "9:16"
+      },
+      "thematic_notes": "Medical set as trap. IV stands = spears. Surgical tools = weapons. Institutional horror meets practical SFX."
+    },
+    {
+      "id": "S3",
+      "name": "The Detention Block",
+      "subtitle": "School Hallway",
+      "narrative_context": {
+        "story_beat": "DAY 3 - Metrics & Morality",
+        "description": "School hallway configuration targets nostalgia and innocence. Metrics = morality. Refusal triggers punishment. Trust collapses.",
+        "characters": ["REBECCA (AD)", "KAM (Director)", "TRISH & JOSH (The Couple)"],
+        "key_moment": "REBECCA tries to maintain order; the rulebook burns. Forced participation."
+      },
+      "prompt": "abandoned 1990s school hallway, lockers with faded graffiti, one silhouette slamming door, flickering light creates motion blur, dust in air, handheld look with film grain, Canon C300 Mark III 50 mm lens, aperture f/2, nostalgic but menacing tone, neon yellow and muted green light palette",
+      "parameters": {
+        "aspect_ratio": "16:9",
+        "style": "analog film",
+        "seed": 4409,
+        "negative_prompt": "faces"
+      },
+      "technical_specs": {
+        "camera": "Canon C300 Mark III",
+        "lens": "50mm prime",
+        "aperture": "f/2",
+        "dof": "isolates subject",
+        "movement": "handheld",
+        "lighting_mood": "institutional_yellow_green",
+        "resolution": "8K"
+      },
+      "alternate_ratios": {
+        "ultra_wide": "21:9",
+        "vertical_content": "9:16"
+      },
+      "thematic_notes": "Analog grain = found-footage authenticity. 90s nostalgia weaponized. Childhood spaces as death traps."
+    },
+    {
+      "id": "S4",
+      "name": "The Guts",
+      "subtitle": "Boiler Room",
+      "narrative_context": {
+        "story_beat": "DAY 4 - Betrayal Mechanics",
+        "description": "Set reconfigures against them. Pipes burst, steam scalds. Infrastructure exposed. Alliances tested. Gear becomes murder weapons.",
+        "characters": ["BRAD (Stuntman - meets his end)", "WILLY (DP)", "MARK (Sound)"],
+        "key_moment": "BRAD's stunt skills fail—safety rigs can't save you when environment is sentient."
+      },
+      "prompt": "industrial boiler room labyrinth of pipes and valves, red warning lights cutting through dense steam, faceless silhouettes outlined by glow, wet metal and condensation dripping, tungsten backlight with smoke depth, Blackmagic URSA Mini Pro G2, 24 mm lens low angle, cinematic texture 8K clarity",
+      "parameters": {
+        "aspect_ratio": "21:9",
+        "style": "cinematic horror",
+        "seed": 6182,
+        "negative_prompt": "faces"
+      },
+      "technical_specs": {
+        "camera": "Blackmagic URSA Mini Pro G2",
+        "lens": "24mm wide angle",
+        "aperture": "deep focus",
+        "dof": "deep",
+        "movement": "low angle",
+        "lighting_mood": "industrial_heat",
+        "resolution": "8K"
+      },
+      "alternate_ratios": {
+        "standard_widescreen": "16:9",
+        "vertical_content": "9:16"
+      },
+      "thematic_notes": "'The Guts' = exposed machinery of the game. SAW-style mechanical horror. Claustrophobic spatial dread."
+    },
+    {
+      "id": "S5",
+      "name": "The Panopticon",
+      "subtitle": "TV Studio / Control Room",
+      "narrative_context": {
+        "story_beat": "ONGOING META-LAYER - The Voice's Domain",
+        "description": "Dual-reality nerve center. Half backstage infrastructure, half glittering broadcast studio. Where performance meets punishment.",
+        "characters": ["THE VOICE (unseen showrunner)", "KAM (Director in his element)"],
+        "key_moment": "Meta-commentary space. Red tally lights = death sentences. Audience complicity reveal."
+      },
+      "prompt": "dual reality environment, half raw concrete backstage corridor, half glittering LED TV studio, faceless host silhouette center frame under glitching spotlight, red and blue light split the scene, confetti drifting in slow motion, overhead rigging visible, ARRI Alexa LF 65 mm lens, steady-cam tracking, high-contrast lighting mix",
+      "parameters": {
+        "aspect_ratio": "21:9",
+        "style": "surreal broadcast",
+        "seed": 9147,
+        "negative_prompt": "faces"
+      },
+      "technical_specs": {
+        "camera": "ARRI Alexa LF",
+        "lens": "65mm portrait",
+        "aperture": "medium split focus",
+        "dof": "medium",
+        "movement": "steady-cam tracking",
+        "lighting_mood": "split_red_blue",
+        "resolution": "8K"
+      },
+      "alternate_ratios": {
+        "standard_widescreen": "16:9",
+        "vertical_content": "9:16"
+      },
+      "thematic_notes": "MOST IMPORTANT thematic space. Confetti = celebration of death. LED = algorithm made physical. THE TRUMAN SHOW horror."
+    },
+    {
+      "id": "S6",
+      "name": "The Open Room",
+      "subtitle": "Central Arena",
+      "narrative_context": {
+        "story_beat": "THE REVELATION - All Sets Were One",
+        "description": "Overhead reveal: entire soundstage exposed. All 'sets' (S1-S9) visible as modular zones. Survivors realize they've been rats in a maze.",
+        "characters": ["Remaining survivors", "LEXI (likely Final Girl)"],
+        "key_moment": "Spatial revelation. God's-eye-view of the game. Pre-finale positioning."
+      },
+      "prompt": "overhead drone shot of massive soundstage arena, walls labeled S1-S9, red tally lights glowing on rigging, seven silhouetted figures standing in a circle on polished concrete, fog layers and diffused white light from above, Epic 8K aerial composition with high contrast, digital grain realism",
+      "parameters": {
+        "aspect_ratio": "16:9",
+        "style": "cinematic surveillance",
+        "seed": 7724,
+        "negative_prompt": "faces"
+      },
+      "technical_specs": {
+        "camera": "Drone / Wire-cam rig",
+        "lens": "Wide aerial",
+        "aperture": "deep focus",
+        "dof": "deep",
+        "movement": "overhead tracking",
+        "lighting_mood": "surveillance_cold",
+        "resolution": "8K"
+      },
+      "alternate_ratios": {
+        "ultra_wide": "21:9",
+        "vertical_content": "9:16"
+      },
+      "thematic_notes": "SQUID GAME reference. Arena reveal. All horror spaces exist simultaneously. Audience watching from above."
+    },
+    {
+      "id": "S7",
+      "name": "The Open Space",
+      "subtitle": "Exit Illusion / End Scene",
+      "narrative_context": {
+        "story_beat": "FINALE - The Live Studio Audience",
+        "description": "Tunnel to freedom. Red lights fade to white. But white light = stage lights. LEXI emerges into LIVE STUDIO AUDIENCE. She was content all along.",
+        "characters": ["LEXI (Final Girl)", "THE VOICE (revealed as showrunner)"],
+        "key_moment": "False exit. THE BELKO EXPERIMENT ending. Twist: survival = ratings. Viewers were complicit."
+      },
+      "prompt": "dark tunnel leading from soundstage, red emergency lights fade into white doorway in distance, silhouettes walking toward light, fog dense near floor, cables overhead form abstract geometry, Sony Venice 50 mm lens, f/1.8 depth, cinematic long exposure glow, psychological thriller tone",
+      "parameters": {
+        "aspect_ratio": "21:9",
+        "style": "dreamlike exit",
+        "seed": 9091,
+        "negative_prompt": "faces"
+      },
+      "technical_specs": {
+        "camera": "Sony Venice",
+        "lens": "50mm prime",
+        "aperture": "f/1.8",
+        "dof": "shallow",
+        "movement": "slow tracking toward light",
+        "lighting_mood": "red_to_white_gradient",
+        "resolution": "8K"
+      },
+      "alternate_ratios": {
+        "standard_widescreen": "16:9",
+        "vertical_content": "9:16"
+      },
+      "thematic_notes": "White light = audience. Meta-reveal. LEXI isn't escaping, she's debuting. Ultimate horror: viewers complicit all along."
+    }
+  ],
+  "aspect_ratio_guide": {
+    "vertical_content_9_16": {
+      "use_for": "Social media POVs, character reaction shots, 'viral content' being filmed within story",
+      "post_production": "Add UI overlays (likes, comments, chat)",
+      "example_parameter": "--ar 9:16 --style vertical content"
+    },
+    "standard_widescreen_16_9": {
+      "use_for": "Traditional cinematic moments, reveals, ensemble shots",
+      "example_parameter": "--ar 16:9 --style cinematic"
+    },
+    "ultra_widescreen_21_9": {
+      "use_for": "Scope/epic dread, spatial horror, surveillance god's-eye shots",
+      "example_parameter": "--ar 21:9 --style cinematic horror"
+    }
+  },
+  "workflow": {
+    "pipeline": "Midjourney V7 → Veo3 → DaVinci Resolve",
+    "steps": [
+      {
+        "step": 1,
+        "action": "Generate stills in Midjourney V7 using scene prompts",
+        "output": "8K still frames"
+      },
+      {
+        "step": 2,
+        "action": "Select hero frames for each scene",
+        "output": "Curated key art"
+      },
+      {
+        "step": 3,
+        "action": "Import to Veo3 for motion",
+        "features": ["Camera movement (tracking, handheld shake, dolly)", "Atmospheric FX (fog, steam, particle drift)", "Lighting flicker/glitch effects"]
+      },
+      {
+        "step": 4,
+        "action": "Export as 4K or 8K clips",
+        "output": "Motion sequences"
+      },
+      {
+        "step": 5,
+        "action": "Edit in DaVinci Resolve or Premiere",
+        "post_production": [
+          "UI overlays for 9:16 content shots",
+          "Sound design (PA announcements, tally light beeps, THE VOICE)",
+          "Color grade per lighting mood codes"
+        ]
+      }
+    ]
+  },
+  "character_variants": {
+    "LEXI": {
+      "role": "Final Girl - SFX Artist",
+      "followers": "~3M",
+      "prompt_addon": "goth-glam silhouette with practical effects tools, resourceful body language"
+    },
+    "KAM": {
+      "role": "Director",
+      "followers": "~10M",
+      "prompt_addon": "commanding silhouette with director's viewfinder, framing gesture"
+    },
+    "TRISH_JOSH": {
+      "role": "The Couple",
+      "followers": "3M combined",
+      "prompt_addon": "two silhouettes in conflict posture, relationship breakdown body language"
+    },
+    "SYLVIA": {
+      "role": "Writer",
+      "followers": "Off-grid",
+      "prompt_addon": "isolated silhouette with script pages, intellectual vulnerability"
+    },
+    "THE_VOICE": {
+      "role": "The Showrunner",
+      "followers": "???",
+      "visual_representation": "glowing red speaker grilles, surveillance camera eyes, broadcast tower silhouette"
+    }
+  },
+  "color_palette": {
+    "primary": "#ef4444",
+    "primary_name": "Red Tally Light",
+    "secondary": "#1e3a8a",
+    "secondary_name": "Surveillance Blue",
+    "accent": "#84cc16",
+    "accent_name": "Sickly Institutional Green",
+    "neutral": "#1f2937",
+    "neutral_name": "Soundstage Black",
+    "highlight": "#f97316",
+    "highlight_name": "Industrial Tungsten Orange"
+  },
+  "metadata": {
+    "version": "1.0",
+    "format": "Midjourney V7 / Veo3 compatible",
+    "created_for": "Killer Influence pitch deck visualization",
+    "total_scenes": 7,
+    "output_formats": ["TXT", "JSON"]
+  }
+}
